@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)https://my.vanderbilt.edu/cs8395/ -->
+<html lang="en-US"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width">
+<title>Deep Learning in Medical Image Computing | CS-8395-02 Spring 2020</title>
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<link rel="stylesheet" type="text/css" media="all" href="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/style.css">
+<link rel="pingback" href="https://my.vanderbilt.edu/cs8395/xmlrpc.php">
+<!--[if lt IE 9]>
+<script src="https://my.vanderbilt.edu/cs8395/wp-content/themes/twentyeleven/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+<link rel="alternate" type="application/rss+xml" title="Deep Learning in Medical Image Computing » Feed" href="https://my.vanderbilt.edu/cs8395/feed/">
+<link rel="alternate" type="application/rss+xml" title="Deep Learning in Medical Image Computing » Comments Feed" href="https://my.vanderbilt.edu/cs8395/comments/feed/">
+		<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/72x72\/","ext":".png","source":{"concatemoji":"https:\/\/my.vanderbilt.edu\/cs8395\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.5.22"}};
+			!function(a,b,c){function d(a){var c,d,e,f=b.createElement("canvas"),g=f.getContext&&f.getContext("2d"),h=String.fromCharCode;if(!g||!g.fillText)return!1;switch(g.textBaseline="top",g.font="600 32px Arial",a){case"flag":return g.fillText(h(55356,56806,55356,56826),0,0),f.toDataURL().length>3e3;case"diversity":return g.fillText(h(55356,57221),0,0),c=g.getImageData(16,16,1,1).data,d=c[0]+","+c[1]+","+c[2]+","+c[3],g.fillText(h(55356,57221,55356,57343),0,0),c=g.getImageData(16,16,1,1).data,e=c[0]+","+c[1]+","+c[2]+","+c[3],d!==e;case"simple":return g.fillText(h(55357,56835),0,0),0!==g.getImageData(16,16,1,1).data[0];case"unicode8":return g.fillText(h(55356,57135),0,0),0!==g.getImageData(16,16,1,1).data[0]}return!1}function e(a){var c=b.createElement("script");c.src=a,c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var f,g,h,i;for(i=Array("simple","flag","unicode8","diversity"),c.supports={everything:!0,everythingExceptFlag:!0},h=0;h<i.length;h++)c.supports[i[h]]=d(i[h]),c.supports.everything=c.supports.everything&&c.supports[i[h]],"flag"!==i[h]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[i[h]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(g=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",g,!1),a.addEventListener("load",g,!1)):(a.attachEvent("onload",g),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),f=c.source||{},f.concatemoji?e(f.concatemoji):f.wpemoji&&f.twemoji&&(e(f.twemoji),e(f.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel="stylesheet" id="open-sans-css" href="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/css" type="text/css" media="all">
+<link rel="stylesheet" id="dashicons-css" href="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/dashicons.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="admin-bar-css" href="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/admin-bar.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="author-avatars-widget-css" href="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/widget.css" type="text/css" media="all">
+<link rel="stylesheet" id="author-avatars-shortcode-css" href="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/shortcode.css" type="text/css" media="all">
+<script type="text/javascript" src="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/cdfplugin.js"></script>
+<link rel="https://api.w.org/" href="https://my.vanderbilt.edu/cs8395/wp-json/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://my.vanderbilt.edu/cs8395/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://my.vanderbilt.edu/cs8395/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.5.22">
+<link rel="canonical" href="https://my.vanderbilt.edu/cs8395/">
+<link rel="shortlink" href="https://my.vanderbilt.edu/cs8395/">
+<link rel="alternate" type="application/json+oembed" href="https://my.vanderbilt.edu/cs8395/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmy.vanderbilt.edu%2Fcs8395%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://my.vanderbilt.edu/cs8395/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmy.vanderbilt.edu%2Fcs8395%2F&amp;format=xml">
+		<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+		
+<style>#wpadminbar .quicklinks li#wp-admin-bar-blog-2304 .blavatar { font-size: 0 !important; }#wp-admin-bar-blog-2304 div.blavatar { background: url( "https://cdn.vanderbilt.edu/vu-my/wp-content/uploads/sites/2304/2016/10/14140833/masi-logo-light-small.png" ) left bottom/16px no-repeat !important; background-size: 16px !important; margin: 0 2px 0 -2px; }
+#wpadminbar .quicklinks li#wp-admin-bar-blog-3380 .blavatar { font-size: 0 !important; }#wp-admin-bar-blog-3380 div.blavatar { background: url( "https://cdn.vanderbilt.edu/vu-my/wp-content/uploads/sites/3380/2020/02/19182430/cropped-1-32x32.png" ) left bottom/16px no-repeat !important; background-size: 16px !important; margin: 0 2px 0 -2px; }
+</style>
+	<style type="text/css" id="twentyeleven-header-css">
+			#site-title a,
+		#site-description {
+			color: #1e73be;
+		}
+		</style>
+	<style type="text/css" media="print">#wpadminbar { display:none; }</style>
+<style type="text/css" media="screen">
+	html { margin-top: 32px !important; }
+	* html body { margin-top: 32px !important; }
+	@media screen and ( max-width: 782px ) {
+		html { margin-top: 46px !important; }
+		* html body { margin-top: 46px !important; }
+	}
+</style>
+</head>
+
+<body class="home page page-id-3 page-template-default logged-in admin-bar single-author singular two-column right-sidebar customize-support">
+<div id="page" class="hfeed">
+	<header id="branding" role="banner">
+			<hgroup>
+				<h1 id="site-title"><span><a href="https://my.vanderbilt.edu/cs8395/" rel="home">Deep Learning in Medical Image Computing</a></span></h1>
+				<h2 id="site-description">CS-8395-02 Spring 2020</h2>
+			</hgroup>
+
+						<a href="https://my.vanderbilt.edu/cs8395/">
+									<img src="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/cropped-YuankaiResearch.jpg" width="1000" height="338" alt="Deep Learning in Medical Image Computing">
+							</a>
+			
+								<form method="get" id="searchform" action="https://my.vanderbilt.edu/cs8395/">
+		<label for="s" class="assistive-text">Search</label>
+		<input type="text" class="field" name="s" id="s" placeholder="Search">
+		<input type="submit" class="submit" name="submit" id="searchsubmit" value="Search">
+	</form>
+			
+			<nav id="access" role="navigation">
+				<h3 class="assistive-text">Main menu</h3>
+								<div class="skip-link"><a class="assistive-text" href="https://my.vanderbilt.edu/cs8395/#content">Skip to primary content</a></div>
+												<div class="menu"><ul><li class="current_page_item"><a href="https://my.vanderbilt.edu/cs8395/">Home</a></li></ul></div>
+			</nav><!-- #access -->
+	</header><!-- #branding -->
+
+
+	<div id="main">
+
+		<div id="primary">
+			<div id="content" role="main">
+
+				
+					
+<article id="post-3" class="post-3 page type-page status-publish hentry">
+	<header class="entry-header">
+		<h1 class="entry-title">CS-8395 Deep Learning in Medical Image Computing</h1>
+	</header><!-- .entry-header -->
+
+	<div class="entry-content">
+		<h1><span style="color: #ff0000">* Important Notice. We will have both office hour and class through <a href="https://vanderbilt.zoom.us/" target="_blank">ZOOM </a>(Same Time as Scheduled)</span></h1>
+<p>Classroom:&nbsp;<a href="https://vanderbilt.zoom.us/j/613153831" target="_blank">https://vanderbilt.zoom.us/j/613153831</a></p>
+<p>TA Office hour:&nbsp;<a href="https://vanderbilt.zoom.us/s/779998946" target="_blank">https://vanderbilt.zoom.us/s/779998946</a></p>
+<p>Faculty Office hour:&nbsp;<a href="https://vanderbilt.zoom.us/j/613153831" target="_blank">https://vanderbilt.zoom.us/j/613153831</a></p>
+<p><strong>I. Course Information：</strong></p>
+<p>Deep Learning is&nbsp;prevalent since 2015 in medical image computing. This class covers the theories and practices of Deep Learning related to medical image computing.</p>
+<p><strong>II. Teaching Team:</strong><br>
+<strong>Instructor:&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</strong>Yuankai Huo&nbsp; &nbsp; &nbsp;<strong>Email:</strong> yuankai.huo@vanderbilt.edu<br>
+<strong>Teaching Assistant:&nbsp;&nbsp;</strong>Roza Bayrak&nbsp; &nbsp; &nbsp;<strong>Email:</strong> roza.g.bayrak@vanderbilt.edu</p>
+<p><strong>Class Meets: Tuesday &amp; Thursday, 4:00 pm – 5:15 pm, FGH&nbsp;110</strong><br>
+<strong>TA Office Hours: Tuesday &amp; Thursday, 1:00 pm – 4:00 pm,&nbsp;TA Office (FGH 385 or 375)</strong><br>
+<strong>Instructor Office Hours:</strong>&nbsp;<strong>Tuesday &amp; Thursday, 3:00 pm – 4:00 pm, (FGH 376)</strong></p>
+<p><strong>Course Website: <a href="https://my.vanderbilt.edu/cs8395" target="_blank">https://my.vanderbilt.edu/cs8395</a></strong><br>
+<strong>Submission &amp; Discussion: <a href="https://www.vanderbilt.edu/brightspace" target="_blank">https://www.vanderbilt.edu/brightspace</a></strong></p>
+<h1>III. Schedule</h1>
+<table style="height: 57px" width="584" rules="all">
+<tbody>
+<tr>
+<th>
+<p align="left"><strong>Date</strong></p>
+</th>
+<th>
+<p align="left"><strong>Topics</strong></p>
+</th>
+<th>
+<p align="left"><strong>Comments</strong></p>
+</th>
+</tr>
+<tr>
+<td>Jan&nbsp;07</td>
+<td>Overview of Deep Learning in Medical Image Computing</td>
+<td><a href="https://drive.google.com/open?id=1fknOfvnn-2-NhgcQG4jQAzUUZ2s3r605" target="_blank">slides</a></td>
+</tr>
+<tr>
+<td>Jan 09</td>
+<td>Neural Networks and CNN</td>
+<td><a href="https://drive.google.com/open?id=1GeTyyP_D7oU9KkmyrFKaIDbTYWUQoUta" target="_blank">slides</a>, <a href="https://www.nature.com/articles/nature14539" target="_blank">reading1</a></td>
+</tr>
+<tr>
+<td>Jan 14</td>
+<td>Classification (Medical Image Diagnosis)</td>
+<td><a href="https://drive.google.com/open?id=1F3bBGdjYu9HThJdQABYhjhD2fW25hVoH" target="_blank">slides</a>, <a href="https://arxiv.org/abs/1512.03385" target="_blank">reading2</a></td>
+</tr>
+<tr>
+<td>Jan 16</td>
+<td>Detection (Landmark Localization and Detection)</td>
+<td><a href="https://drive.google.com/open?id=1sW6WIDD5duRZI9z1tG3yr1iIWPahNb70" target="_blank">slides</a>, <a href="https://arxiv.org/abs/1506.01497" target="_blank">reading3</a></td>
+</tr>
+<tr>
+<td>Jan 21</td>
+<td>Segmentation (Medical Image Segmentation)</td>
+<td><a href="https://drive.google.com/open?id=1TNaw53O8L9NgbGubiD-_C91X1rStQ3qe" target="_blank">slides</a>, <a href="https://arxiv.org/abs/1505.04597" target="_blank">reading4</a></td>
+</tr>
+<tr>
+<td>Jan 23</td>
+<td>GAN (Medical Image Synthesis)</td>
+<td><a href="https://drive.google.com/open?id=1Mz09iLdR0hLrp4hvCpMtyWHHPtxaf3eM" target="_blank">slides</a>, <a href="https://arxiv.org/abs/1406.2661" target="_blank">reading5</a></td>
+</tr>
+<tr>
+<td>Jan 28</td>
+<td>Assignment 1 Presentation</td>
+<td></td>
+</tr>
+<tr>
+<td>Jan 30</td>
+<td>Multi-modal Learning</td>
+<td><a href="https://drive.google.com/open?id=1YcTb_F4ZZTculaghLaqaKTNHsESb6CPN" target="_blank">slides</a>, <a href="https://arxiv.org/abs/1807.06537" target="_blank">reading6</a></td>
+</tr>
+<tr>
+<td>Feb 04</td>
+<td>Multi-task Learning</td>
+<td><a href="https://drive.google.com/open?id=19HyoY-hYHiO82r37I5eAcd2uKnyPWW3l" target="_blank">slides</a>, <a href="https://arxiv.org/abs/1805.10376" target="_blank">reading7</a></td>
+</tr>
+<tr>
+<td>Feb 06</td>
+<td>Beyond 2D: 3D Networks</td>
+<td><a href="https://drive.google.com/open?id=1T1xIGjojw-t-RzjFYgqy_PYfGpFkBdaQ" target="_blank">slides</a>, <a href="https://arxiv.org/abs/1606.06650" target="_blank">reading8</a></td>
+</tr>
+<tr>
+<td>Feb 11</td>
+<td>Semi-/weakly-supervised Learning</td>
+<td><a href="https://drive.google.com/open?id=1isnLUiaj0mjvXDujYxZlon3zETQ9MWSx" target="_blank">slides</a>, <a href="https://link.springer.com/chapter/10.1007/978-3-030-00931-1_68" target="_blank">reading9</a></td>
+</tr>
+<tr>
+<td>Feb 13</td>
+<td>Assignment 2 Presentation</td>
+<td></td>
+</tr>
+<tr>
+<td>Feb 18</td>
+<td>Unsupervised Learning</td>
+<td><a href="https://drive.google.com/open?id=1MkMhT1uJzL1qCFONxi5I1scESqfy-NsI" target="_blank">slides</a>, <a href="https://arxiv.org/pdf/1312.6114.pdf" target="_blank">reading10</a></td>
+</tr>
+<tr>
+<td>Feb 20</td>
+<td>Data Augmentation and Preprocessing</td>
+<td><a href="https://drive.google.com/open?id=1ww4gtQaIqBYQatIomZKXUlFKv-bPbHyc" target="_blank">slides</a>, <a href="http://www.cs.toronto.edu/~liang/Publications/ModelsGenesis/MICCAI_2019_Full.pdf" target="_blank">reading11</a></td>
+</tr>
+<tr>
+<td>Feb 25</td>
+<td>Final Project Proposal</td>
+<td><a href="https://drive.google.com/open?id=14RH_AnWNcxNngteWCnsHIqxagKipVbMQ" target="_blank">example</a></td>
+</tr>
+<tr>
+<td>Feb 27</td>
+<td>Final Project Proposal</td>
+<td></td>
+</tr>
+<tr>
+<td>Mar 03</td>
+<td>No Class: Spring Break!</td>
+<td></td>
+</tr>
+<tr>
+<td>Mar 05</td>
+<td>No Class: Spring Break!</td>
+<td></td>
+</tr>
+<tr>
+<td>Mar 10</td>
+<td>No Class: COVID-19</td>
+<td></td>
+</tr>
+<tr>
+<td>Mar 12</td>
+<td>No Class:&nbsp;COVID-19</td>
+<td></td>
+</tr>
+<tr>
+<td>Mar 17</td>
+<td>Attention Mechanism and Postprocessing</td>
+<td><a href="https://drive.google.com/open?id=1z8xJZo_NGxWVTFCvo_hFkea8m7VTQTla" target="_blank">slides</a>, <a href="http://cnnlocalization.csail.mit.edu/Zhou_Learning_Deep_Features_CVPR_2016_paper.pdf" target="_blank">reading12</a></td>
+</tr>
+<tr>
+<td>Mar 19</td>
+<td>Spatial-temporal Model: RNN and LSTM</td>
+<td><a href="https://drive.google.com/open?id=1ifsY3GOeGLTbmTRsohFDkPStMGUGfEBM" target="_blank">slides</a>, <a href="https://www.mitpressjournals.org/doi/full/10.1162/neco_a_01199" target="_blank">reading13</a></td>
+</tr>
+<tr>
+<td>Mar 24</td>
+<td>Assignment 3 Presentation</td>
+<td></td>
+</tr>
+<tr>
+<td>Mar 26</td>
+<td>Image Retrieval and Active Learning</td>
+<td><a href="https://drive.google.com/open?id=1ett81prquPse-jSi7Qj969-5IK5HgL_3" target="_blank">slides</a>, <a href="https://arxiv.org/pdf/1910.02923.pdf" target="_blank">reading14</a></td>
+</tr>
+<tr>
+<td>Mar&nbsp;31</td>
+<td>Image Text Co-learning</td>
+<td><a href="https://drive.google.com/open?id=16ZZVY4XYrp_FnlUVomOR2Fdg9GIvvQSo" target="_blank">slides</a>,&nbsp;<a href="https://arxiv.org/ftp/arxiv/papers/1902/1902.08236.pdf" target="_blank">reading15</a></td>
+</tr>
+<tr>
+<td>Apr&nbsp;02</td>
+<td>Learn from Prior and Online Learning</td>
+<td><a href="https://drive.google.com/open?id=1TADeZo9boVAdemuSxO2YWeVshqaArl1c" target="_blank">slides</a>, <a href="http://openaccess.thecvf.com/content_cvpr_2017/html/Zhou_Fine-Tuning_Convolutional_Neural_CVPR_2017_paper.html" target="_blank">reading16</a></td>
+</tr>
+<tr>
+<td>Apr 07</td>
+<td>Summary</td>
+<td></td>
+</tr>
+<tr>
+<td>Apr&nbsp;09</td>
+<td>Final Project Presentation</td>
+<td></td>
+</tr>
+<tr>
+<td>Apr&nbsp;14</td>
+<td>Final Project Presentation</td>
+<td></td>
+</tr>
+<tr>
+<td>Apr 16</td>
+<td>Final Project Presentation</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1>IV. Assignments</h1>
+<table rules="all">
+<tbody>
+<tr>
+<th>
+<p align="left"><strong>Assignments</strong></p>
+</th>
+<th>
+<p align="left"><strong>Download</strong></p>
+</th>
+<th>
+<p align="left"><strong>Due Date</strong></p>
+</th>
+</tr>
+<tr>
+<td>Reading Assignments</td>
+<td><a href="https://drive.google.com/open?id=13rtygpXPV5r1QtPn0i9rl53Wf0AtG_pd" target="_blank">Template</a></td>
+<td>Begining of the class</td>
+</tr>
+<tr>
+<td>Assignment 0: Eligibility Test</td>
+<td><a href="https://drive.google.com/open?id=1I_Te0hleeieD5CvaRyf2abil_s0lwiJr" target="_blank">PDF</a></td>
+<td>Jan 09&nbsp;2020, 4:00 pm</td>
+</tr>
+<tr>
+<td>Assignment 1: Detection</td>
+<td><a href="https://drive.google.com/open?id=1p7mXFU40D4Zc3J4EX6GZOfmhIa5gKI6a" target="_blank">PDF</a></td>
+<td>Jan 28 2020, 9:00 am</td>
+</tr>
+<tr>
+<td>Assignment 2: Classification</td>
+<td><a href="https://drive.google.com/open?id=1EVDJ8lDZEdKSMMsJ5BIc2ScK7kPCNYn8" target="_blank">PDF</a></td>
+<td>Feb 13 2020, 9:00 am</td>
+</tr>
+<tr>
+<td>Assignment 3: Segmentation</td>
+<td><a href="https://drive.google.com/open?id=1rfoD8_HYzhS7W_MEFMmapc4ycsmsHhbF" target="_blank">PDF</a></td>
+<td>Mar 26 2020, 9:00 am</td>
+</tr>
+<tr>
+<td>Final Project</td>
+<td><a href="https://drive.google.com/open?id=1nEFD07z3IO-pQjRKlq_Ye37fNddd1lKY" target="_blank">Example</a></td>
+<td>Apr&nbsp;20 2020, 9:00 am</td>
+</tr>
+</tbody>
+</table>
+<p>* Teamwork is not allowed for assignments.</p>
+<h1>V. Assignments, Mid Term Exam, and Final Project</h1>
+<p>More details are provided&nbsp;<a href="https://drive.google.com/open?id=1DsY20yv83jMUxRHa5AdRCjW7ilaDdSEc" target="_blank"><strong>Here</strong></a>.</p>
+<h1>VI. Computational Resource</h1>
+<p>GPU computing is required for this class. I strongly recommend to&nbsp;use your own/lab’s GPU since that is the most convenient way of writing and testing code with GUI. However, if you don’t have any GPU computational resource, you can use the GPU on ACCRE by filling the following two forms:<br>
+1. <a href="https://www.vanderbilt.edu/accre/getting-started/registration/" target="_blank">ACCRE registration form</a><a href="https://www.vanderbilt.edu/accre/getting-started/registration/" target="_blank"><br>
+</a>2. <a href="https://docs.google.com/spreadsheets/d/1hECSmMsJNFghC4_VtdS81-Dl4iuGzRvGV_GzY-A8f9I/edit?usp=sharing" target="_blank">GPU requirement form</a><br>
+If you are already using ACCRE, you can submit a helpdesk ticket instead to request access to your class group. There is a relatively large demand for GPU resources at ACCRE, so limited GPU resources will be provided for this class.<br>
+*The deadline of ACCRE resource application is the due date of assignment 1.</p>
+<h1>VII. FAQs</h1>
+<p><strong>1. The class is full. Can I still get in?</strong><br>
+It is unlikely except other students drop it during the first week.<br>
+<strong>2. What is pre-requirement?</strong><br>
+Linear algebra, programming in python, introduction in machine learning.<br>
+<strong>3. Can I sit in class without registering?</strong><br>
+Yes after getting the instructor’s approval. Another option is to register to audit the class (just $50).</p>
+<h1>VIII. References</h1>
+<p>* We used images and contents in the slides from the following resources, thanks for the great work done by the smart people!<br>
+http://deeplearning.cs.cmu.edu/<br>
+https://www.cs.princeton.edu/courses/archive/spring16/cos495/<br>
+http://ttic.uchicago.edu/~shubhendu/Pages/CMSC35246.html<br>
+https://www.cc.gatech.edu/classes/AY2018/cs7643_fall<br>
+https://www.deeplearningbook.org/lecture_slides.html<br>
+http://introtodeeplearning.com/</p>
+			</div><!-- .entry-content -->
+	<footer class="entry-meta">
+		<span class="edit-link"><a class="post-edit-link" href="https://my.vanderbilt.edu/cs8395/wp-admin/post.php?post=3&amp;action=edit">Edit</a></span>	</footer><!-- .entry-meta -->
+</article><!-- #post-3 -->
+
+						<div id="comments">
+	
+	
+	
+	
+</div><!-- #comments -->
+
+				
+			</div><!-- #content -->
+		</div><!-- #primary -->
+
+
+	</div><!-- #main -->
+
+	<footer id="colophon" role="contentinfo">
+
+			
+
+			<div id="site-generator">
+								<a href="https://wordpress.org/" title="Semantic Personal Publishing Platform">Proudly powered by WordPress</a>
+			</div>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+<script type="text/javascript" src="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/admin-bar.min.js"></script>
+<script type="text/javascript" src="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/comment-reply.min.js"></script>
+<script type="text/javascript" src="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/wp-embed.min.js"></script>
+	<script type="text/javascript">
+		(function() {
+			var request, b = document.body, c = 'className', cs = 'customize-support', rcs = new RegExp('(^|\\s+)(no-)?'+cs+'(\\s+|$)');
+
+			request = true;
+
+			b[c] = b[c].replace( rcs, ' ' );
+			b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+		}());
+	</script>
+			
+
+		
+
+<div id="wpadminbar" class="nojq ">
+							<a class="screen-reader-shortcut" href="https://my.vanderbilt.edu/cs8395/#wp-toolbar" tabindex="1">Skip to toolbar</a>
+						<div class="quicklinks" id="wp-toolbar" role="navigation" aria-label="Toolbar" tabindex="0">
+				<ul id="wp-admin-bar-root-default" class="ab-top-menu">
+		<li id="wp-admin-bar-my-sites" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://my.vanderbilt.edu/wp-admin/my-sites.php">My Sites</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-my-sites-list" class="ab-submenu">
+		<li id="wp-admin-bar-blog-1" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://my.vanderbilt.edu/wp-admin/"><div class="blavatar"></div>my.vanderbilt.edu</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-blog-1-default" class="ab-submenu">
+		<li id="wp-admin-bar-blog-1-d"><a class="ab-item" href="https://my.vanderbilt.edu/wp-admin/">Dashboard</a>		</li>
+		<li id="wp-admin-bar-blog-1-v"><a class="ab-item" href="https://my.vanderbilt.edu/">Visit Site</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-blog-2304" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://my.vanderbilt.edu/masi/wp-admin/"><div class="blavatar"></div>Medical-image Analysis and Statistical Interpretation (MASI) Lab </a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-blog-2304-default" class="ab-submenu">
+		<li id="wp-admin-bar-blog-2304-d"><a class="ab-item" href="https://my.vanderbilt.edu/masi/wp-admin/">Dashboard</a>		</li>
+		<li id="wp-admin-bar-blog-2304-n"><a class="ab-item" href="https://my.vanderbilt.edu/masi/wp-admin/post-new.php">New Post</a>		</li>
+		<li id="wp-admin-bar-blog-2304-v"><a class="ab-item" href="https://my.vanderbilt.edu/masi/">Visit Site</a>		</li>
+		<li id="wp-admin-bar-blog-2304-comments"><a class="ab-item" href="https://my.vanderbilt.edu/masi/wp-admin/edit-comments.php" title="0 comments awaiting moderation">Manage Comments<span class="ab-label awaiting-mod pending-count count-0" style="margin-left:.2em">0</span></a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-blog-3345" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://my.vanderbilt.edu/cs8395/wp-admin/"><div class="blavatar"></div>Deep Learning in Medical Image Computing</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-blog-3345-default" class="ab-submenu">
+		<li id="wp-admin-bar-blog-3345-d"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/">Dashboard</a>		</li>
+		<li id="wp-admin-bar-blog-3345-n"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/post-new.php">New Post</a>		</li>
+		<li id="wp-admin-bar-blog-3345-v"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/">Visit Site</a>		</li>
+		<li id="wp-admin-bar-blog-3345-comments"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/edit-comments.php" title="0 comments awaiting moderation">Manage Comments<span class="ab-label awaiting-mod pending-count count-0" style="margin-left:.2em">0</span></a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-blog-3380" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://my.vanderbilt.edu/huolab/wp-admin/"><div class="blavatar"></div>HRLB Lab</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-blog-3380-default" class="ab-submenu">
+		<li id="wp-admin-bar-blog-3380-d"><a class="ab-item" href="https://my.vanderbilt.edu/huolab/wp-admin/">Dashboard</a>		</li>
+		<li id="wp-admin-bar-blog-3380-n"><a class="ab-item" href="https://my.vanderbilt.edu/huolab/wp-admin/post-new.php">New Post</a>		</li>
+		<li id="wp-admin-bar-blog-3380-v"><a class="ab-item" href="https://my.vanderbilt.edu/huolab/">Visit Site</a>		</li>
+		<li id="wp-admin-bar-blog-3380-comments"><a class="ab-item" href="https://my.vanderbilt.edu/huolab/wp-admin/edit-comments.php" title="0 comments awaiting moderation">Manage Comments<span class="ab-label awaiting-mod pending-count count-0" style="margin-left:.2em">0</span></a>		</li></ul></div>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-site-name" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://my.vanderbilt.edu/cs8395/wp-admin/">Deep Learning in Medical Image Computing</a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-site-name-default" class="ab-submenu">
+		<li id="wp-admin-bar-dashboard"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/">Dashboard</a>		</li></ul><ul id="wp-admin-bar-appearance" class="ab-submenu">
+		<li id="wp-admin-bar-themes"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/themes.php">Themes</a>		</li>
+		<li id="wp-admin-bar-widgets"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/widgets.php">Widgets</a>		</li>
+		<li id="wp-admin-bar-menus"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/nav-menus.php">Menus</a>		</li>
+		<li id="wp-admin-bar-background" class="hide-if-customize"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/themes.php?page=custom-background">Background</a>		</li>
+		<li id="wp-admin-bar-header" class="hide-if-customize"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/themes.php?page=custom-header">Header</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-customize" class="hide-if-no-customize"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/customize.php?url=https%3A%2F%2Fmy.vanderbilt.edu%2Fcs8395%2F">Customize</a>		</li>
+		<li id="wp-admin-bar-comments"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/edit-comments.php"><span class="ab-icon"></span><span id="ab-awaiting-mod" class="ab-label awaiting-mod pending-count count-0" aria-hidden="true">0</span><span class="screen-reader-text">0 comments awaiting moderation</span></a>		</li>
+		<li id="wp-admin-bar-new-content" class="menupop"><a class="ab-item" aria-haspopup="true" href="https://my.vanderbilt.edu/cs8395/wp-admin/post-new.php"><span class="ab-icon"></span><span class="ab-label">New</span></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-new-content-default" class="ab-submenu">
+		<li id="wp-admin-bar-new-post"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/post-new.php">Post</a>		</li>
+		<li id="wp-admin-bar-new-media"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/media-new.php">Media</a>		</li>
+		<li id="wp-admin-bar-new-link"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/link-add.php">Link</a>		</li>
+		<li id="wp-admin-bar-new-page"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/post-new.php?post_type=page">Page</a>		</li>
+		<li id="wp-admin-bar-new-user"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/user-new.php">User</a>		</li></ul></div>		</li>
+		<li id="wp-admin-bar-edit"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/post.php?post=3&amp;action=edit">Edit Page</a>		</li></ul><ul id="wp-admin-bar-top-secondary" class="ab-top-secondary ab-top-menu">
+		<li id="wp-admin-bar-search" class="admin-bar-search"><div class="ab-item ab-empty-item" tabindex="-1"><form action="https://my.vanderbilt.edu/cs8395/" method="get" id="adminbarsearch"><input class="adminbar-input" name="s" id="adminbar-search" type="text" value="" maxlength="150"><label for="adminbar-search" class="screen-reader-text">Search</label><input type="submit" class="adminbar-button" value="Search"></form></div>		</li>
+		<li id="wp-admin-bar-my-account" class="menupop with-avatar"><a class="ab-item" aria-haspopup="true" href="https://my.vanderbilt.edu/cs8395/wp-admin/profile.php">Howdy, huoy1<img alt="" src="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/c7a61c8aaf9ca89269a0a22f6a45958a.png" srcset="https://secure.gravatar.com/avatar/c7a61c8aaf9ca89269a0a22f6a45958a?s=52&amp;d=mm&amp;r=g 2x" class="avatar avatar-26 photo" height="26" width="26"></a><div class="ab-sub-wrapper"><ul id="wp-admin-bar-user-actions" class="ab-submenu">
+		<li id="wp-admin-bar-user-info"><a class="ab-item" tabindex="-1" href="https://my.vanderbilt.edu/cs8395/wp-admin/profile.php"><img alt="" src="./Deep Learning in Medical Image Computing _ CS-8395-02 Spring 2020_files/c7a61c8aaf9ca89269a0a22f6a45958a(1).png" srcset="https://secure.gravatar.com/avatar/c7a61c8aaf9ca89269a0a22f6a45958a?s=128&amp;d=mm&amp;r=g 2x" class="avatar avatar-64 photo" height="64" width="64"><span class="display-name">huoy1</span></a>		</li>
+		<li id="wp-admin-bar-edit-profile"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-admin/profile.php">Edit My Profile</a>		</li>
+		<li id="wp-admin-bar-logout"><a class="ab-item" href="https://my.vanderbilt.edu/cs8395/wp-login.php?action=logout&amp;_wpnonce=fbabed0bf1">Log Out</a>		</li></ul></div>		</li></ul>			</div>
+						<a class="screen-reader-shortcut" href="https://my.vanderbilt.edu/cs8395/wp-login.php?action=logout&amp;_wpnonce=fbabed0bf1">Log Out</a>
+					</div></body></html>
